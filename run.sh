@@ -1,6 +1,6 @@
-lifx() {
-  source "$(dirname "$0")/common/const"
+source common/const
 
+lifx() {
   PATHS=(
     $NVIM_CONFIG
     $NVIM_SCRIPTS
@@ -15,9 +15,14 @@ lifx() {
   done
 
   # override
-  cp ./tools/lifx/lifx.lua $NVIM_CONFIG
-  cp ./tools/lifx/toggleLifx.sh $NVIM_SCRIPTS
-  cp ./tools/lifx/lifxAPIKey $NVIM_KEYS
+  cp $LIFX_PATH/lifx.lua $NVIM_CONFIG
+  cp $LIFX_PATH/toggleLifx.sh $NVIM_SCRIPTS
+  cp $LIFX_PATH/lifxAPIKey $NVIM_KEYS
+}
+
+config() {
+  source config/bashrc.sh
 }
 
 lifx
+config

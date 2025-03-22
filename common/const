@@ -1,3 +1,4 @@
 NVIM_CONFIG=~/.config/nvim/lua/plugins/
 NVIM_SCRIPTS=~/.config/nvim/scripts/
 NVIM_KEYS=~/.config/nvim/keys
+LIFX_PATH=tools/lifx

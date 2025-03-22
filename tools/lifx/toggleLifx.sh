@@ -8,6 +8,12 @@ isKeyValid() {
   \t2. check if grep returns key
   \rAborting."
     exit 1
+  elif [ $key = "YOUR_KEY_GOES_HERE" ]; then
+    echo -e "Error: default key value wasn't changed
+    Suggestions:
+    \t1. change value under ~/.config/nvim/keys to yours
+    \rAborting."
+    exit 1
   fi
 }
 
@@ -19,9 +25,9 @@ lifxNeonToggle() {
     -s https://api.lifx.com/v1/lights/all | jq '.[0].power' | tr -d '"')
 
   # lightsPowerStatus=somethingElse
-  if [ $lightsPowerStatus == on ]; then
+  if [ $lightsPowerStatus = on ]; then
     lightsPowerStatus=off
-  elif [ $lightsPowerStatus == off ]; then
+  elif [ $lightsPowerStatus = off ]; then
     lightsPowerStatus=on
   else
     echo -e "Error: expected on or off, but received: $lightsPowerStatus
