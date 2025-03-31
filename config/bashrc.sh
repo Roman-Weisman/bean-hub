@@ -14,7 +14,7 @@ EOF
     cat <<EOF >>"$BASHRC"
 
 # coffeebean config
-export SERVER_ID="server1"
+export SERVER_ID="1"
 export ENV="development"
 export PORT="8080"
 EOF
