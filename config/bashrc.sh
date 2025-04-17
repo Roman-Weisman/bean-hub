@@ -16,7 +16,7 @@ EOF
 # coffeebean config
 export SERVER_ID="1"
 export ENV="development"
-export PORT="8080"
+export PORT="80"
 EOF
   fi
 }
