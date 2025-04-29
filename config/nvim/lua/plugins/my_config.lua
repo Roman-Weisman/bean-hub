@@ -32,9 +32,11 @@ return {
 			},
 		},
 	},
-	{ "folke/noice.nvim", enabled = false }, -- I prefer messages to be printed below
+	-- Noice.nvim is placing a popup when i press :
+	-- Since I don't exactly remeber when I turned it off, I'll leave it. I think it was something with not seeing the : or /.
+	-- { "folke/noice.nvim", enabled = false }, -- I prefer messages to be printed below
 	{
-		"neovim/nvim-lspconfig", -- Disable inlay hints
+		"neovim/nvim-lspconfig", -- Disable inlay hints for go
 		opts = {
 			servers = {
 				gopls = {
@@ -57,6 +59,7 @@ return {
 	},
 	{
 		"mfussenegger/nvim-dap",
+		require("nvim-dap-virtual-text").setup({ enabled = false }),
 		keys = {
       -- stylua: ignore start
       -- { "<leader>da", false },
@@ -77,4 +80,5 @@ return {
 			-- stylua: ignore end
 		},
 	},
+	{ "theHamsta/nvim-dap-virtual-text", enabled = false }, -- Causes noise on debug where inlay text displays values and messes the code.
 }
