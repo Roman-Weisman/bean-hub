@@ -62,15 +62,6 @@ return {
     require("nvim-dap-virtual-text").setup({ enabled = false }),
     keys = {
       -- stylua: ignore start
-      -- { "<leader>da", false },
-      -- { "<leader>db", false },
-      -- { "<leader>dc", false },
-      -- { "<leader>dh", false },
-      -- { "<leader>di", false },
-      -- { "<leader>do", false },
-      -- { "<leader>dO", false },
-      -- { "<leader>dt", false },
-      -- { "<F5>", function() require("dap").toggle_breakpoint() end, desc = "DAP: Toggle Breakpoint" },
       { "<F6>", function() require("dap").step_over() end, desc = "DAP: Step Over" },
       { "<F7>", function() require("dap").step_into() end, desc = "DAP: Step Into" },
       { "<F8>", function() require("dap").step_out() end, desc = "DAP: Step Out" },
@@ -82,7 +73,7 @@ return {
   },
   { "theHamsta/nvim-dap-virtual-text", enabled = false }, -- Prevents noise on debug where inlay text displays values and messes the code.
   {
-    -- Without this, sql format doesn't work.
+    -- Without this, sql formatter doesn't work.
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {

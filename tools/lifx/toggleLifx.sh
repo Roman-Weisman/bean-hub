@@ -38,9 +38,14 @@ lifxNeonToggle() {
   fi
 
   # executes only if power is on or off
-  curl -H "Authorization: Bearer $key" \
-    -s -o /dev/null -X PUT https://api.lifx.com/v1/lights/all/state \
-    -d "power=$lightsPowerStatus"
+  # curl -H "Authorization: Bearer $key" \
+  #   -s -o /dev/null -X PUT https://api.lifx.com/v1/lights/all/state \
+  #   -d "power=$lightsPowerStatus"
+  curl -s -H "Authorization: Bearer $key" \
+    "https://api.lifx.com/v1/lights/all" |
+    # jq -r '.[] | "ID: \(.id), Label: \(.label), Connected: \(.connected)"'
+    jq '.[] | {group: .group.name, label: .label,
+    id: .id, power: .power}'
 }
 
 lifxNeonToggle
