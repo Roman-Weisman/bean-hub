@@ -1,24 +1,12 @@
---[[
-Overriding unwated default behavior.
-More info can be found in readmd.md under the relevant plugin.
---]]
-
--- Java file
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "java",
-  callback = function()
-    vim.bo.shiftwidth = 4 -- java files will have a 4 letter indent
-  end,
-})
-
-vim.keymap.set("n", "<F12>", ":lua print('hi from F12') <CR>", { silent = true }) -- configure keymaps
-
 -- Disable inlay hints
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     vim.lsp.inlay_hint.enable(false, { bufnr = args.buf })
   end,
 })
+
+-- Keep unused variable text visually normal; do not dim or change color.
+vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { fg = nil, bg = nil, bold = false, italic = false, underline = false })
 
 -- Config override
 return {
