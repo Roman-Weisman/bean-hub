@@ -41,6 +41,7 @@ return {
 							},
 							analyses = {
 								ST1000 = false, -- Disable package comment diagnostic.
+								ST1003 = false, -- Allow ALL_CAPS names.
 							},
 						},
 					},
