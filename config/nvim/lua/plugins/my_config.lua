@@ -1,14 +1,11 @@
--- Disable inlay hints
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		vim.lsp.inlay_hint.enable(false, { bufnr = args.buf })
+-- Keep unused variable text visually normal; do not dim or change color.
+vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
+	callback = function()
+		vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { fg = nil, bg = nil })
 	end,
 })
 
--- Keep unused variable text visually normal; do not dim or change color.
-vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { fg = nil, bg = nil, bold = false, italic = false, underline = false })
-
--- Config override
+-- Config override.
 return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -20,9 +17,6 @@ return {
 			},
 		},
 	},
-	-- Noice.nvim is placing a popup when i press :
-	-- Since I don't exactly remeber when I turned it off, I'll leave it. I think it was something with not seeing the : or /.
-	-- { "folke/noice.nvim", enabled = false }, -- I prefer messages to be printed below
 	{
 		"neovim/nvim-lspconfig", -- Disable inlay hints for go
 		opts = {
@@ -57,7 +51,7 @@ return {
       { "<F6>", function() require("dap").step_over() end, desc = "DAP: Step Over" },
       { "<F7>", function() require("dap").step_into() end, desc = "DAP: Step Into" },
       { "<F8>", function() require("dap").step_out() end, desc = "DAP: Step Out" },
-      { "<F9>", function() require("dap").run_last() end, desc = "DAP: Run Last" }, -- Delve step back is not supported
+      { "<F9>", function() require("dap").run_last() end, desc = "DAP: Run Last" },
       { "<F10>", function() require("dap").restart() end, desc = "DAP: Restart" },
       { "<Space>dd", function() require("dap-go").debug_test() end, desc = "Debug nearest Go test" },
 			-- stylua: ignore end
