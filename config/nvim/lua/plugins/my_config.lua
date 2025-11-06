@@ -45,7 +45,6 @@ return {
 	},
 	{
 		"mfussenegger/nvim-dap",
-		require("nvim-dap-virtual-text").setup({ enabled = false }),
 		keys = {
       -- stylua: ignore start
       { "<F6>", function() require("dap").step_over() end, desc = "DAP: Step Over" },
